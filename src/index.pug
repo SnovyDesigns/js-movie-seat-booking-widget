@@ -7,3 +7,81 @@ html(lang="en")
     title Movie Seat Booking
     link(href=require("./favicon.ico"), rel='shortcut icon')
   body
+    .movie-container
+      label Pick a movie:
+      select#movie
+        option(value="10") Avengers Endgame ($10)
+        option(value="12") Joker ($12)
+        option(value="8") Toy Story 4 ($8)
+        option(value="9") The Lion King $(9)
+    ul.showcase
+      li
+        .seat
+        small N/A
+      li
+        .seat.selected
+        small Selected
+      li
+        .seat.occupied
+        small Ocuupied
+    .container
+      .screen
+      .row
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+      .row
+        .seat
+        .seat
+        .seat
+        .seat.occupied
+        .seat.occupied
+        .seat
+        .seat
+        .seat
+      .row
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat.occupied
+        .seat.occupied
+      .row
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat
+      .row
+        .seat
+        .seat
+        .seat
+        .seat.occupied
+        .seat.occupied
+        .seat
+        .seat
+        .seat
+      .row
+        .seat
+        .seat
+        .seat
+        .seat
+        .seat.occupied
+        .seat.occupied
+        .seat.occupied
+        .seat
+    p.text
+      | You have seleted&nbsp;
+      span#count 0
+      | &nbsp;seats for a price of $
+      span#total 0
