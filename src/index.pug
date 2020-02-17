@@ -7,81 +7,182 @@ html(lang="en")
     title Movie Seat Booking
     link(href=require("./favicon.ico"), rel='shortcut icon')
   body
-    .movie-container
-      label Pick a movie:
-      select#movie
-        option(value="10") Avengers Endgame ($10)
-        option(value="12") Joker ($12)
-        option(value="8") Toy Story 4 ($8)
-        option(value="9") The Lion King $(9)
-    ul.showcase
-      li
-        .seat
-        small N/A
-      li
-        .seat.selected
-        small Selected
-      li
-        .seat.occupied
-        small Ocuupied
-    .container
-      .screen
-      .row
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-      .row
-        .seat
-        .seat
-        .seat
-        .seat.occupied
-        .seat.occupied
-        .seat
-        .seat
-        .seat
-      .row
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat.occupied
-        .seat.occupied
-      .row
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat
-      .row
-        .seat
-        .seat
-        .seat
-        .seat.occupied
-        .seat.occupied
-        .seat
-        .seat
-        .seat
-      .row
-        .seat
-        .seat
-        .seat
-        .seat
-        .seat.occupied
-        .seat.occupied
-        .seat.occupied
-        .seat
-    p.text
-      | You have seleted&nbsp;
-      span#count 0
-      | &nbsp;seats for a price of $
-      span#total 0
+    h1.heading-primary Movie Seat Booking
+    .movie
+      .movie__left
+        h2.heading-secondary Movie Selected
+        .movie__poster
+        .movie__info
+          h3.heading-tertiary.heading-tertiary--bold Director
+          h3.heading-tertiary Rupert Sanders
+          h3.heading-tertiary.heading-tertiary--bold Starring
+          h3.heading-tertiary Scarlett Johansson, Pilou Asbæk, Takeshi Kitano
+          h3.heading-tertiary.heading-tertiary--bold Genre
+          h3.heading-tertiary Action, Drama, Sci-Fi
+        .movie__ticket-price
+          p.display
+            | Ticket price:&nbsp;
+            span.display__currency $
+            span#price.display__price 12
+
+      .movie__right
+        .movie__pick
+          h2.heading-secondary Pick a movie to watch:
+          .movie__checkboxes
+            .movie__check
+              input#movie-ghost(name="movie-ghost", type="checkbox")
+              label(for="movie-ghost") Ghost in the Shell
+            .movie__check
+              input#movie-lion(name="movie-lion", type="checkbox")
+              label(for="movie-ghost") The Lion King
+            .movie__check
+              input#movie-assasins(name="movie-assasins", type="checkbox")
+              label(for="movie-ghost") Assassin's Creed
+            .movie__check
+              input#movie-avengers(name="movie-avengers", type="checkbox")
+              label(for="movie-ghost") Avengers Endgame
+          .movie__seats
+            .movie__screen
+            .movie__row
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+            .movie__row
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+            .movie__row
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat
+              .movie__seat
+              .movie__seat
+            .movie__row
+              .movie__seat
+              .movie__seat
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+            .movie__row
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+            .movie__row
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+            .movie__row
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat.reserved
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+            .movie__row
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat.reseverd
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+            .movie__row
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+              .movie__seat
+          .movie__showcase
+            p.text.text--available Available Seat
+            p.text.text--reserved Reserved Seat
+            p.text.text--selected Your Seat
+          .movie__total
+            p.display
+              | You have selected&nbsp;
+              span#count 0
+              | &nbsp;seats for a price of&nbsp;
+              span.display__currency $
+              span#total.display__price 36
