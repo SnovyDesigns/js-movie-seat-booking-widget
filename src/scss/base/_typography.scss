@@ -1,3 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
+
 body {
-  font-size: $fs-base;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.text,
+.heading-primary,
+.heading-secondary,
+.display {
+  color: rgba($color: $c-white, $alpha: 0.9);
+}
+
+.text {
+  font-size: $fs-text;
+  font-weight: $fw-light;
+}
+
+.heading-primary {
+  font-size: $fs-heading-primary;
+  font-weight: $fw-regular;
+  text-shadow: 1px 1px 0 rgba($color: $c-black, $alpha: 0.45);
+  margin-bottom: 2rem;
+}
+
+.heading-secondary {
+  font-size: $fs-heading-secondary;
+  font-weight: $fw-medium;
+  text-align: center;
+}
+
+.heading-tertiary {
+  font-size: $fs-heading-tertiary;
+  font-weight: $fw-regular;
+  color: rgba($color: $c-white, $alpha: 0.9);
+
+  &--medium {
+    font-weight: $fw-medium;
+    color: rgba($color: $c-white, $alpha: 0.65);
+  }
+}
+
+.display {
+  font-size: $fs-display;
+  font-weight: $fw-regular;
+  display: flex;
+  align-items: center;
+
+  &__currency {
+    font-size: $fs-display-big;
+  }
+
+  &__price {
+    font-size: $fs-display-medium;
+  }
 }

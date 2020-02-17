@@ -1,13 +1,47 @@
 // ***** COLORS *****
+$c-white: #fff;
+$c-black: #000;
+$c-dark: #0e0f13;
+
+$c-grey: #414246;
+$c-grey-dark: #2e3037;
+$c-grey-dark-2: #272e36;
+
+$c-asphalt: #151c26;
+
+$c-available: #615da9;
+$c-selected: #78cf07;
 
 // ----------------------------------------------
 
 // ***** FONT WEIGHTS *****
 $fw-light: 300;
 $fw-regular: 400;
-$fw-medium: 700;
+$fw-medium: 600;
 
 // ----------------------------------------------
 
 // ***** FONT SIZES *****
-$fs-base: 1.6rem;
+$fs-text: 1.6rem;
+
+$fs-heading-primary: 4.8rem;
+$fs-heading-secondary: 1.7rem;
+$fs-heading-tertiary: 1.5rem;
+
+$fs-display: 1.9rem;
+$fs-display-medium: 3.2rem;
+$fs-display-big: 4rem;
+
+// ----------------------------------------------
+
+// ***** GRADIENTS *****
+
+$gradient: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(0, 0, 0, 0.35) 117.43%
+  ),
+  linear-gradient(180deg, #323232 2.16%, #3f3f3f 57.81%, #1c1c1c 98.25%);
+
+// background-blend-mode: multiply, normal;
+// mix-blend-mode: multiply;

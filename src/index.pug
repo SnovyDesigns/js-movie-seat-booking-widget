@@ -9,17 +9,25 @@ html(lang="en")
   body
     h1.heading-primary Movie Seat Booking
     .movie
+      .movie__poster-ghost
+      .movie__poster-lion
+      .movie__poster-avengers
+      .movie__poster-assasins
       .movie__left
         h2.heading-secondary Movie Selected
-        .movie__poster
-        .movie__info
-          h3.heading-tertiary.heading-tertiary--bold Director
-          h3.heading-tertiary Rupert Sanders
-          h3.heading-tertiary.heading-tertiary--bold Starring
-          h3.heading-tertiary Scarlett Johansson, Pilou Asbæk, Takeshi Kitano
-          h3.heading-tertiary.heading-tertiary--bold Genre
-          h3.heading-tertiary Action, Drama, Sci-Fi
-        .movie__ticket-price
+        .movie__selected
+          .movie__poster
+          .movie__info
+            .movie__info-row
+              h3.heading-tertiary.heading-tertiary--medium Director
+              h3.heading-tertiary Rupert Sanders
+            .movie__info-row
+              h3.heading-tertiary.heading-tertiary--medium Starring
+              h3.heading-tertiary Scarlett Johansson, Pilou Asbæk, Takeshi Kitano
+            .movie__info-row
+              h3.heading-tertiary.heading-tertiary--medium Genre
+              h3.heading-tertiary Action, Drama, Sci-Fi
+        .movie__display
           p.display
             | Ticket price:&nbsp;
             span.display__currency $
@@ -28,33 +36,22 @@ html(lang="en")
       .movie__right
         .movie__pick
           h2.heading-secondary Pick a movie to watch:
-          .movie__checkboxes
-            .movie__check
-              input#movie-ghost(name="movie-ghost", type="checkbox")
-              label(for="movie-ghost") Ghost in the Shell
-            .movie__check
-              input#movie-lion(name="movie-lion", type="checkbox")
-              label(for="movie-ghost") The Lion King
-            .movie__check
-              input#movie-assasins(name="movie-assasins", type="checkbox")
-              label(for="movie-ghost") Assassin's Creed
-            .movie__check
-              input#movie-avengers(name="movie-avengers", type="checkbox")
-              label(for="movie-ghost") Avengers Endgame
+        .movie__checkboxes
+          .movie__check
+            input#movie-ghost(name="movie-ghost", type="checkbox", checked)
+            label.heading-tertiary(for="movie-ghost") Ghost in the Shell
+          .movie__check
+            input#movie-lion(name="movie-lion", type="checkbox")
+            label.heading-tertiary(for="movie-ghost") The Lion King
+          .movie__check
+            input#movie-assasins(name="movie-assasins", type="checkbox")
+            label.heading-tertiary(for="movie-ghost") Assassin's Creed
+          .movie__check
+            input#movie-avengers(name="movie-avengers", type="checkbox")
+            label.heading-tertiary(for="movie-ghost") Avengers Endgame
+        .movie__wrapper
+          .movie__screen
           .movie__seats
-            .movie__screen
-            .movie__row
-              .movie__seat
-              .movie__seat
-              .movie__seat
-              .movie__seat
-              .movie__seat
-              .movie__seat
-              .movie__seat
-              .movie__seat
-              .movie__seat
-              .movie__seat
-              .movie__seat
             .movie__row
               .movie__seat
               .movie__seat
@@ -87,8 +84,8 @@ html(lang="en")
               .movie__seat.reserved
               .movie__seat.reserved
               .movie__seat.reserved
-              .movie__seat.reserved
-              .movie__seat.reserved
+              .movie__seat
+              .movie__seat
               .movie__seat
               .movie__seat
               .movie__seat
@@ -175,14 +172,14 @@ html(lang="en")
               .movie__seat
               .movie__seat
               .movie__seat
-          .movie__showcase
-            p.text.text--available Available Seat
-            p.text.text--reserved Reserved Seat
-            p.text.text--selected Your Seat
-          .movie__total
-            p.display
-              | You have selected&nbsp;
-              span#count 0
-              | &nbsp;seats for a price of&nbsp;
-              span.display__currency $
-              span#total.display__price 36
+        .movie__showcase
+          p.text.text--available Available Seat
+          p.text.text--reserved Reserved Seat
+          p.text.text--selected Your Seat
+        .movie__display
+          p.display
+            | You have selected&nbsp;
+            span#count 0
+            | &nbsp;seats for a price of&nbsp;
+            span.display__currency $
+            span#total.display__price 36

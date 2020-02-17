@@ -1,0 +1,234 @@
+body {
+  @include size(100%, 100vh);
+  background: iurl('body_bg.jpg') center/cover;
+  display: flex;
+  flex-direction: column;
+  @include center;
+}
+
+.movie {
+  display: flex;
+  @include size(128, 72);
+  border: 1px solid rgba($color: $c-white, $alpha: 0.15);
+  position: relative;
+
+  &__poster-ghost {
+    display: block;
+    @include size(100%);
+    @include absolute(top 0 left 0);
+    background-image: $gradient, iurl('ghost_bg.jpg');
+    background-position: 50% 50%;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    // visibility: hidden;
+  }
+
+  &__poster-lion {
+    display: block;
+    @include size(100%);
+    @include absolute(top 0 left 0);
+    background-image: $gradient, iurl('lion_bg.jpg');
+    background-position: 50% 50%;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    visibility: hidden;
+  }
+
+  &__poster-avengers {
+    display: block;
+    @include size(100%);
+    @include absolute(top 0 left 0);
+    background-image: $gradient, iurl('avengers_bg.jpg');
+    background-position: 50% 50%;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    visibility: hidden;
+  }
+
+  &__poster-assasins {
+    display: block;
+    @include size(100%);
+    @include absolute(top 0 left 0);
+    background-image: $gradient, iurl('assasins_bg.jpg');
+    background-position: 50% 50%;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    visibility: hidden;
+  }
+
+  &__left,
+  &__right {
+    z-index: 2;
+  }
+
+  &__left {
+    @include size(43, 100%);
+    background: rgba($color: $c-grey-dark, $alpha: 0.45);
+    border-right: 1px solid rgba($color: $c-white, $alpha: 0.15);
+    display: flex;
+    padding-top: 1.5rem;
+    flex-direction: column;
+  }
+
+  &__display {
+    background: rgba($color: $c-dark, $alpha: 0.75);
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding: 0.5rem 0;
+  }
+
+  &__selected {
+    width: 27rem;
+    margin: 1.5rem auto;
+  }
+
+  &__poster {
+    @include size(27, 40);
+    background: iurl('ghost_poster.jpg') center/cover;
+  }
+
+  &__info {
+    background: $c-grey;
+    padding: 1rem;
+  }
+
+  &__info-row {
+    margin-bottom: 0.5rem;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    @include size(100%);
+  }
+
+  &__pick,
+  &__showcase {
+    background: rgba($color: $c-asphalt, $alpha: 0.75);
+    padding: 1.5rem 0;
+  }
+
+  &__checkboxes {
+    background: rgba($color: $c-grey-dark-2, $alpha: 0.75);
+    padding: 1em 1.5rem;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__check {
+    padding: 1.5em 2rem;
+    background: linear-gradient(
+      180deg,
+      #43484e 0%,
+      rgba(67, 72, 78, 0.65) 100%
+    );
+    @include brr(0.2);
+    display: flex;
+    align-items: center;
+
+    input {
+      @include size(2.2);
+      @include brr(0.2);
+      background: transparent;
+      appearance: none;
+      outline: none;
+      border: 1px solid $c-white;
+      margin-right: 1rem;
+      position: relative;
+      display: flex;
+      @include center;
+
+      &::before {
+        content: '';
+        display: block;
+        @include size(1);
+        background: rgba($color: $c-white, $alpha: 0.15);
+        @include brr(0.2);
+        @include trans;
+      }
+
+      &:checked {
+        &::before {
+          background: rgba($color: $c-white, $alpha: 0.85);
+        }
+      }
+    }
+  }
+
+  &__showcase {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    @include center;
+    position: relative;
+  }
+
+  &__screen {
+    @include size(90, 35);
+    background: iurl('screen.png');
+    @include absolute(top 2rem);
+  }
+
+  &__seats {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__row {
+    align-self: center;
+  }
+
+  &__seat {
+    display: inline-block;
+    @include size(3.5);
+    @include brr(0.2);
+    background: $c-available;
+    margin: 0.5rem 0.8rem;
+
+    &.reserved {
+      background: $c-grey;
+    }
+
+    &.selected {
+      background: $c-selected;
+    }
+  }
+}
+
+.text {
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    @include size(3);
+    margin-right: 1.5rem;
+    @include brr(0.2);
+  }
+
+  &--available {
+    &::before {
+      background: $c-available;
+    }
+  }
+
+  &--reserved {
+    margin: 0 7rem;
+    &::before {
+      background: $c-grey;
+    }
+  }
+
+  &--selected {
+    &::before {
+      background: $c-selected;
+    }
+  }
+}
