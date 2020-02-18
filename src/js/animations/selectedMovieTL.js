@@ -9,7 +9,7 @@ gsap.registerPlugin(TextPlugin);
 
 // ----------------------------------------------
 
-export default function selectedMovieTL(movieName, ticketPrice) {
+export default function selectedMovieTL(movieName, ticketPrice, totalPrice) {
   const tl = gsap.timeline(),
     movieBGS = document.querySelectorAll('.movie__bg'),
     moviePosters = document.querySelectorAll('.movie__poster'),
@@ -19,6 +19,7 @@ export default function selectedMovieTL(movieName, ticketPrice) {
     director = document.querySelector('#director'),
     starring = document.querySelector('#starring'),
     genre = document.querySelector('#genre'),
+    total = document.querySelector('#total'),
     { directorText, starringText, genreText } = movieData[movieName];
 
   tl.to(
@@ -52,6 +53,12 @@ export default function selectedMovieTL(movieName, ticketPrice) {
       },
       0.85
     );
+
+  if (totalPrice) {
+    tl.to(total, { duration: 0.35, y: -20, opacity: 0, ease: 'power3' }, 0.4);
+    tl.set(total, { text: totalPrice, y: 20 }, 0.8);
+    tl.to(total, { duration: 0.35, y: 0, opacity: 1, ease: 'power3' }, 1.15);
+  }
 
   return tl;
 }
