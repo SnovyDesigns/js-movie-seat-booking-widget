@@ -9,46 +9,50 @@ html(lang="en")
   body
     h1.heading-primary Movie Seat Booking
     .movie
-      .movie__poster-ghost
-      .movie__poster-lion
-      .movie__poster-avengers
-      .movie__poster-assasins
+      #movie-ghost-bg.movie__bg.movie__bg--ghost
+      #movie-lion-bg.movie__bg.movie__bg--lion
+      #movie-assasins-bg.movie__bg.movie__bg--assasins
+      #movie-avengers-bg.movie__bg.movie__bg--avengers
       .movie__left
         h2.heading-secondary Movie Selected
         .movie__selected
-          .movie__poster
+          .movie__poster-wrapper
+            #movie-ghost-poster.movie__poster.movie__poster--ghost
+            #movie-lion-poster.movie__poster.movie__poster--lion
+            #movie-assasins-poster.movie__poster.movie__poster--assasins
+            #movie-avengers-poster.movie__poster.movie__poster--avengers
           .movie__info
             .movie__info-row
               h3.heading-tertiary.heading-tertiary--medium Director
-              h3.heading-tertiary Rupert Sanders
+              h3#director.heading-tertiary Rupert Sanders
             .movie__info-row
               h3.heading-tertiary.heading-tertiary--medium Starring
-              h3.heading-tertiary Scarlett Johansson, Pilou Asbæk, Takeshi Kitano
+              h3#starring.heading-tertiary Scarlett Johansson, Pilou Asbæk, Takeshi Kitano
             .movie__info-row
               h3.heading-tertiary.heading-tertiary--medium Genre
-              h3.heading-tertiary Action, Drama, Sci-Fi
+              h3#genre.heading-tertiary Action, Drama, Sci-Fi
         .movie__display
           p.display
             | Ticket price:&nbsp;
             span.display__currency $
-            span#price.display__price 12
+            span#price.display__price 10
 
       .movie__right
         .movie__pick
           h2.heading-secondary Pick a movie to watch:
         .movie__checkboxes
           .movie__check
-            input#movie-ghost(name="movie-ghost", type="checkbox", checked)
+            input#movie-ghost.movie__checkbox(name="movie-ghost", type="checkbox", checked="true", value="10")
             label.heading-tertiary(for="movie-ghost") Ghost in the Shell
           .movie__check
-            input#movie-lion(name="movie-lion", type="checkbox")
-            label.heading-tertiary(for="movie-ghost") The Lion King
+            input#movie-lion.movie__checkbox(name="movie-lion", type="checkbox", value="12")
+            label.heading-tertiary(for="movie-lion") The Lion King
           .movie__check
-            input#movie-assasins(name="movie-assasins", type="checkbox")
-            label.heading-tertiary(for="movie-ghost") Assassin's Creed
+            input#movie-assasins.movie__checkbox(name="movie-assasins", type="checkbox", value="10")
+            label.heading-tertiary(for="movie-assasins") Assassin's Creed
           .movie__check
-            input#movie-avengers(name="movie-avengers", type="checkbox")
-            label.heading-tertiary(for="movie-ghost") Avengers Endgame
+            input#movie-avengers.movie__checkbox(name="movie-avengers", type="checkbox", value="14")
+            label.heading-tertiary(for="movie-avengers") Avengers Endgame
         .movie__wrapper
           .movie__screen
           .movie__seats

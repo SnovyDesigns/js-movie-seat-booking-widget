@@ -12,48 +12,30 @@ body {
   border: 1px solid rgba($color: $c-white, $alpha: 0.15);
   position: relative;
 
-  &__poster-ghost {
+  &__bg {
     display: block;
     @include size(100%);
     @include absolute(top 0 left 0);
-    background-image: $gradient, iurl('ghost_bg.jpg');
     background-position: 50% 50%;
     background-blend-mode: multiply;
-    mix-blend-mode: multiply;
-    // visibility: hidden;
-  }
+    opacity: 0;
 
-  &__poster-lion {
-    display: block;
-    @include size(100%);
-    @include absolute(top 0 left 0);
-    background-image: $gradient, iurl('lion_bg.jpg');
-    background-position: 50% 50%;
-    background-blend-mode: multiply;
-    mix-blend-mode: multiply;
-    visibility: hidden;
-  }
+    &--ghost {
+      background-image: $gradient, iurl('ghost_bg.jpg');
+      opacity: 1;
+    }
 
-  &__poster-avengers {
-    display: block;
-    @include size(100%);
-    @include absolute(top 0 left 0);
-    background-image: $gradient, iurl('avengers_bg.jpg');
-    background-position: 50% 50%;
-    background-blend-mode: multiply;
-    mix-blend-mode: multiply;
-    visibility: hidden;
-  }
+    &--lion {
+      background-image: $gradient, iurl('lion_bg.jpg');
+    }
 
-  &__poster-assasins {
-    display: block;
-    @include size(100%);
-    @include absolute(top 0 left 0);
-    background-image: $gradient, iurl('assasins_bg.jpg');
-    background-position: 50% 50%;
-    background-blend-mode: multiply;
-    mix-blend-mode: multiply;
-    visibility: hidden;
+    &--assasins {
+      background-image: $gradient, iurl('assasins_bg.jpg');
+    }
+
+    &--avengers {
+      background-image: $gradient, iurl('avengers_bg.jpg');
+    }
   }
 
   &__left,
@@ -83,9 +65,32 @@ body {
     margin: 1.5rem auto;
   }
 
-  &__poster {
+  &__poster-wrapper {
     @include size(27, 40);
-    background: iurl('ghost_poster.jpg') center/cover;
+    position: relative;
+  }
+
+  &__poster {
+    @include size(100%);
+    @include absolute(top 0 left 0);
+    opacity: 0;
+
+    &--ghost {
+      background: iurl('ghost_poster.jpg') center/cover;
+      opacity: 1;
+    }
+
+    &--lion {
+      background: iurl('lion_poster.jpg') center/cover;
+    }
+
+    &--assasins {
+      background: iurl('assasins_poster.jpg') center/cover;
+    }
+
+    &--avengers {
+      background: iurl('avengers_poster.jpg') center/cover;
+    }
   }
 
   &__info {
@@ -172,12 +177,15 @@ body {
     @include size(90, 35);
     background: iurl('screen.png');
     @include absolute(top 2rem);
+    z-index: 1;
   }
 
   &__seats {
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
   }
 
   &__row {
@@ -190,6 +198,12 @@ body {
     @include brr(0.2);
     background: $c-available;
     margin: 0.5rem 0.8rem;
+    cursor: pointer;
+    @include trans(0.2);
+
+    &:not(.reserved):hover {
+      transform: scale(1.1);
+    }
 
     &.reserved {
       background: $c-grey;
