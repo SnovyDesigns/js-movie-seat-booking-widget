@@ -10,7 +10,7 @@ const seatsWrapper = document.querySelector('.movie__wrapper'),
   total = document.querySelector('#total'),
   checkboxes = document.querySelectorAll('.movie__checkbox');
 
-let ticketPrice = 0,
+let ticketPrice = 10,
   selectedSeatsCount = 0;
 
 populateUI();
